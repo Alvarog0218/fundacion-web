@@ -1,6 +1,7 @@
-Thanks for downloading this template!
+Página web de la FUNDACION DE QUE NOS VALE 
+fundación que nace por iniciativa de Tatiana Uribe, en compañía de su hermano
+Jeddi Uribe
 
-Template Name: Selecao
-Template URL: https://bootstrapmade.com/selecao-bootstrap-template/
-Author: BootstrapMade.com
-License: https://bootstrapmade.com/license/
+Página diseñada y desarrollada por Bigdatia
+
+
