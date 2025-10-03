@@ -201,4 +201,22 @@
   window.addEventListener('load', navmenuScrollspy);
   document.addEventListener('scroll', navmenuScrollspy);
 
+  /**
+   * Cookie Consent
+   */
+  const cookieConsentBanner = document.querySelector('#cookie-consent-banner');
+  if (cookieConsentBanner) {
+    const cookieConsentAccept = cookieConsentBanner.querySelector('#cookie-consent-accept');
+
+    // Check if user has already consented
+    if (!localStorage.getItem('cookie_consent_accepted')) {
+      cookieConsentBanner.style.display = 'block';
+    }
+
+    cookieConsentAccept.addEventListener('click', () => {
+      localStorage.setItem('cookie_consent_accepted', 'true');
+      cookieConsentBanner.style.display = 'none';
+    });
+  }
+
 })();
