@@ -219,4 +219,33 @@
     });
   }
 
+  /**
+   * Lazy load videos in projects section
+   */
+  function lazyLoadProjectVideos() {
+    const projectsSection = document.querySelector('#proyectos');
+    if (!projectsSection) return;
+
+    const videoObserver = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const videos = projectsSection.querySelectorAll('video');
+          videos.forEach(video => {
+            const source = video.querySelector('source');
+            if (source && source.dataset.src && !source.src) {
+              source.src = source.dataset.src;
+              video.load();
+              video.play().catch(error => console.error("Error al intentar reproducir el video automáticamente:", error));
+            }
+          });
+          // Dejar de observar la sección una vez que los videos se han cargado
+          observer.unobserve(projectsSection);
+        }
+      });
+    }, { rootMargin: "0px 0px 200px 0px" }); // Carga los videos 200px antes de que la sección sea visible
+
+    videoObserver.observe(projectsSection);
+  }
+  window.addEventListener('load', lazyLoadProjectVideos);
+
 })();
